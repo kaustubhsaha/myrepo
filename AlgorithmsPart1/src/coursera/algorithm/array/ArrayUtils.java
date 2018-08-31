@@ -4,7 +4,7 @@ public class ArrayUtils {
 
 	public static <V> V[] upsize(V[] input) {
 		int sz = input.length * 2;
-		V[] output = (V[]) new Object[sz];
+		V[] output = (V[]) new Comparable[sz];
 		for (int i=0; i<input.length; i++) {
 			output[i] = input[i];
 		}
