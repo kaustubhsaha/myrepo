@@ -1,0 +1,25 @@
+package spring.annotation.props;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+
+@Configuration
+@PropertySource("classpath:dummy.properties")
+public class TestProps {
+
+	public static PropertySourcesPlaceholderConfigurer propertyConfig() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}
+class Foo {
+	
+	@Value("${motto}")
+	private String message;
+}

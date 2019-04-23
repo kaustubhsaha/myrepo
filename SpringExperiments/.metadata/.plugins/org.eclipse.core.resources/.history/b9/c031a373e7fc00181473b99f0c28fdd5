@@ -1,0 +1,5 @@
+package spring.xml.ioc.props;
+
+public class TestProps {
+
+}

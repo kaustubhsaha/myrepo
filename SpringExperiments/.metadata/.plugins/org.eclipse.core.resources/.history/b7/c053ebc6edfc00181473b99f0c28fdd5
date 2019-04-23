@@ -1,0 +1,30 @@
+package spring.annotation.ioc.props;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+@Configuration
+public class TestSpEL {
+
+	public static void main(String[] args) {
+		System.setProperty("motto", "Thank you Mario but princess is in another castle");
+		ApplicationContext container = new AnnotationConfigApplicationContext(TestSpEL.class);
+		Bar b = container.getBean(Bar.class);
+		System.out.println(b);
+	}
+	
+}
+@Component
+class Bar {
+	
+	@Value("#{system.properties[motto]}")
+	private String message;
+	
+	public String toString() {
+		return message;
+	}
+}

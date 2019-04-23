@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- default scope : singleton -->
+	<bean id="foo" class="spring.xml.ioc.scope.Foo"/>
+	<bean id="bar" class="spring.xml.ioc.scope.Bar" scope="threadlocal"/>
+	
+	<bean id="processor" class="spring.xml.ioc.scope.DummyBeanFactoryPostProcessor"/>
+	
+	<!-- <bean id="threadlocalScope" class="org.springframework.context.support.SimpleThreadScope"/>
+	
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="threadlocal" value-ref="threadlocalScope"/>
+            </map>
+        </property>
+    </bean>-->
+
+</beans>

@@ -1,0 +1,8 @@
+package spring.annotations.ioc.basics;
+
+public class TestIOCBasics {
+
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="corleone1" class="spring.xml.ioc.basics.MafiaFamily" c:boss="Vito Corleone" c:conseglerie="Tom Hagen">
+		<property name="henchman" value="Luca Brasi"/>
+		<property name="caporegime" value="Peter Clemenza"/>
+	</bean>
+	
+	<bean id="corleone2" class="spring.xml.ioc.basics.MafiaFamily" c:boss="Vito Corleone" c:conseglerie="Tom Hagen"
+			p:henchman="Luca Brasi" p:caporegime="Peter Clemenza">
+	</bean>
+	
+	<bean id="corleone3" class="spring.xml.ioc.basics.MafiaFamily" p:henchman="Luca Brasi" p:caporegime="Peter Clemenza">
+		<constructor-arg index="0" value="Vito Corleone"/>
+		<constructor-arg index="1" value="Tom Hagen"/>
+	</bean>	
+	
+	<bean id="corleone4" class="spring.xml.ioc.basics.MafiaFamily">
+		<constructor-arg index="0" value="Vito Corleone"/>
+		<constructor-arg index="1" value="Tom Hagen"/>
+		<property name="henchman" value="Luca Brasi"/>
+		<property name="caporegime" value="Peter Clemenza"/>
+	</bean>	
+
+</beans>

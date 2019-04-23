@@ -1,0 +1,63 @@
+package spring.xml.ioc.scope;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.SimpleThreadScope;
+
+public class TestBeanScope {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("BasicBeanScope.xml");
+		Foo foo1 = container.getBean(Foo.class);
+		Foo foo2 = container.getBean(Foo.class);
+		
+		Bar bar1 = container.getBean(Bar.class);
+		Bar bar2 = container.getBean(Bar.class);
+		
+		//should print true
+		System.out.println(foo1 == foo2);
+		//should print false
+		System.out.println(bar1 == bar2);
+		
+		((ConfigurableApplicationContext)container).close();
+		
+		container = new ClassPathXmlApplicationContext("ThreadLocalScope.xml");
+
+		Bar bar3 = container.getBean(Bar.class);
+		Bar bar4 = container.getBean(Bar.class);	
+		//should print true
+		System.out.println(bar3 == bar4);
+		
+		
+		
+	}
+}
+class Foo {
+	
+}
+class Bar {
+	
+}
+class DummyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+		// threadlocal scope is built in but not registered
+		beanFactory.registerScope("threadlocal", new SimpleThreadScope());	
+	}   
+}
+class MyRunnable implements Runnable {
+
+	public MyRunnable(ApplicationContext container) {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

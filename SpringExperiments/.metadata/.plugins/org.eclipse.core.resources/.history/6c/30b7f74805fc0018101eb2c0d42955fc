@@ -1,0 +1,8 @@
+package spring.annotations.ioc.basics;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class IOCBasicsConfig {
+
+}

@@ -1,0 +1,13 @@
+package spring.xml.ioc.autowiring;
+
+public class TestTypeAutowire {
+
+}
+class Baz{
+	
+	Bar bar;
+	
+	public void setBar(Bar bar) {
+		this.bar = bar;
+	}
+}

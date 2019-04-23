@@ -1,0 +1,82 @@
+package spring.xml.ioc.scope;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.SimpleThreadScope;
+
+public class TestBeanScope {
+
+	public static void main(String[] args) throws InterruptedException {
+		ApplicationContext container = new ClassPathXmlApplicationContext("BasicBeanScope.xml");
+		Foo foo1 = container.getBean(Foo.class);
+		Foo foo2 = container.getBean(Foo.class);
+		
+		Bar bar1 = container.getBean(Bar.class);
+		Bar bar2 = container.getBean(Bar.class);
+		
+		//should print true
+		System.out.println(foo1 == foo2);
+		//should print false
+		System.out.println(bar1 == bar2);
+		
+		((ConfigurableApplicationContext)container).close();
+		
+		container = new ClassPathXmlApplicationContext("ThreadLocalScope.xml");
+
+		Bar bar3 = container.getBean(Bar.class);
+		Bar bar4 = container.getBean(Bar.class);	
+		//should print true
+		System.out.println(bar3 == bar4);
+		
+		MyRunnable r1 = new MyRunnable(container, "bar");
+		MyRunnable r2 = new MyRunnable(container, "bar");
+		Thread t1 = new Thread(r1);
+		Thread t2 = new Thread(r2);
+		t1.start();
+		t2.start();
+		
+		t1.join();
+		t2.join();
+		
+		Bar bar5 = (Bar) r1.getBean();
+		Bar bar6 = (Bar) r2.getBean();
+		//should print false
+		System.out.println(bar5 == bar6);	
+	}
+}
+class Foo {
+	
+}
+class Bar {
+	
+}
+class DummyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+		beanFactory.registerScope("threadlocal", new SimpleThreadScope());	
+	}   
+}
+class MyRunnable implements Runnable {
+
+	final ApplicationContext container;
+	final String beanId;
+	volatile Object bean;
+	
+	public MyRunnable(ApplicationContext container, String beanId) {
+		this.container = container;
+		this.beanId = beanId;
+	}
+	
+	public void run() {
+		bean = container.getBean(beanId);
+	}
+	
+	public Object getBean() {
+		return bean;
+	}
+	
+}

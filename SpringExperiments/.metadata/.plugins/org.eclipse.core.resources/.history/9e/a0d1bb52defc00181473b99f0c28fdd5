@@ -1,0 +1,5 @@
+package spring.annotations.ioc.profile;
+
+public class TestProfile {
+
+}

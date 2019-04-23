@@ -1,0 +1,5 @@
+package spring.xml.ioc.factory;
+
+public class TestFactoryBean {
+
+}

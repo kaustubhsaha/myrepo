@@ -1,0 +1,18 @@
+package spring.xml.ioc.basics;
+
+import org.springframework.beans.factory.DisposableBean;
+
+public class TestApplicationContextClosure {
+
+	public static void main(String[] args) {
+		
+	}
+}
+class Dummy implements DisposableBean {
+
+	public void destroy() throws Exception {
+		String name = Thread.currentThread().getName();
+		
+	}
+	
+}

@@ -1,0 +1,19 @@
+package spring.annotations.ioc.profile;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class TestProfile {
+
+}
+class Motto {
+	String motto;
+	
+	public Motto(String motto) {
+		this.motto = motto;
+	}
+	
+	public String toString() {
+		return this.motto;
+	}
+}

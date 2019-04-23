@@ -1,0 +1,14 @@
+package spring.xml.ioc.autowiring;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestNameAutowire {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("AutowireByName.xml");
+		Baz baz = container.getBean(Baz.class);
+		// should not be null
+		System.out.println(baz.bar);
+	}
+}

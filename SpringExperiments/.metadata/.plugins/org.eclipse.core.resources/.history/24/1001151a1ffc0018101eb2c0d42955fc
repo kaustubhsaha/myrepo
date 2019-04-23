@@ -1,0 +1,25 @@
+package spring.xml.ioc.scope;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestBeanScope {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("BasicBeanScope.xml");
+		Foo foo1 = container.getBean(Foo.class);
+		Foo foo2 = container.getBean(Foo.class);
+		
+		Bar bar1 = container.getBean(Bar.class);
+		Bar bar2 = container.getBean(Bar.class);
+		
+		System.out.println(foo1 == foo2);
+		System.out.println(bar1 == bar2);
+	}
+}
+class Foo {
+	
+}
+class Bar {
+	
+}

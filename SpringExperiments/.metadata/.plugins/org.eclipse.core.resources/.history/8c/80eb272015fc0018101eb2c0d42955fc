@@ -1,0 +1,23 @@
+package spring.xml.ioc.lifecycle;
+
+import org.springframework.beans.factory.InitializingBean;
+
+public class TestBeanLifecycle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class Foo implements InitializingBean {
+
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+class Bar implements DisposableBean {
+	
+}

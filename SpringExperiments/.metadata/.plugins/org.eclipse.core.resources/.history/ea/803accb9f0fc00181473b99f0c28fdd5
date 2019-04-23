@@ -1,0 +1,5 @@
+package spring.xml.ioc.collections;
+
+public class TestCollectionInjections {
+
+}

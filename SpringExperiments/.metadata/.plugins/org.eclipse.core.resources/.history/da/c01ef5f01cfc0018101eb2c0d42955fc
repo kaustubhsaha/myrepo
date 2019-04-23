@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="vito" class="spring.xml.ioc.basics.Boss">
+		<property name="name" value="Vito Corleone"/>
+	</bean>
+	
+	<bean id="solozzo" class="spring.xml.ioc.basics.Boss">
+		<property name="name" value="Virgil Solozzo"/>
+	</bean>	
+	
+	<bean id="luca" class="spring.xml.ioc.basics.Hitman">
+		<property name="name" value="Luca Brasi"/>
+	</bean>
+
+</beans>

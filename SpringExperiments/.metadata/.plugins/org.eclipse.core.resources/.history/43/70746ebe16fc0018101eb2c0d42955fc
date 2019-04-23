@@ -1,0 +1,30 @@
+package spring.xml.ioc.lifecycle;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestBeanLifecyclePojo {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Starting container loading");
+		ApplicationContext container = new ClassPathXmlApplicationContext("Lifecycle2.xml");
+		//Barratheon Rule should be printed
+		
+		System.out.println("Container Loaded");
+		((ConfigurableApplicationContext)container).close();
+		//Bar.destroy() invoked should be printed now
+	}	
+}
+class GameOfThrones {
+	
+	public void begin() {
+		System.out.println("Barratheon Rule");
+	}
+	
+	public void end() {
+		System.out.println("Stark-Targeryan Rule");
+	}
+}
+

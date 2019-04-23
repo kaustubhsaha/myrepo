@@ -1,0 +1,35 @@
+package spring.annotation.props;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+
+@Configuration
+@PropertySource("classpath:dummy.properties")
+@ComponentScan(basePackages= {"spring.annotation.props"})
+public class TestProps {
+
+	public static PropertySourcesPlaceholderConfigurer propertyConfig() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext container = new AnnotationConfigApplicationContext(TestProps.class);
+		Foo f = container.getBean(Foo.class);
+		System.out.println(f);
+	}
+}
+class Foo {
+	
+	@Value("${motto}")
+	private String message;
+	
+	public String toString() {
+		return message;
+	}
+}

@@ -1,0 +1,72 @@
+package spring.annotations.ioc.profile;
+
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import spring.xml.ioc.profile.Motto;
+
+
+@Configuration
+public class TestProfile {
+	
+	@Bean
+	@Profile("stark")
+	public Motto stark() {
+		return new Motto("Winter is coming");
+	}
+
+	@Bean
+	@Profile("lannister")
+	public Motto lannister() {
+		return new Motto("Always pay debts");
+	}
+	
+	@Bean
+	@Profile("greyjoy")
+	public Motto greyjoy() {
+		return new Motto("We do not sow");
+	}
+	
+	@Bean
+	@Profile("tully")
+	public Motto tully() {
+		return new Motto("Family.Duty.Honor");
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext container = new AnnotationConfigApplicationContext(TestProfile.class);
+		Motto m = null;
+		try{
+			m = container.getBean("motto", Motto.class);
+		}
+		catch (NoSuchBeanDefinitionException ex) {
+			// fails because we havent setup a profile yet
+			System.out.println(ex.getLocalizedMessage());
+		}
+		((ConfigurableApplicationContext)container).close();
+		
+		System.setProperty("spring.profiles.active", "lannister");
+		
+		container = new AnnotationConfigApplicationContext(TestProfile.class);
+		m = container.getBean("motto", Motto.class);
+		System.out.println(m.toString());
+	}
+
+}
+class Motto {
+	String motto;
+	
+	public Motto(String motto) {
+		this.motto = motto;
+	}
+	
+	public String toString() {
+		return this.motto;
+	}
+}

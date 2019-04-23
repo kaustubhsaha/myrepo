@@ -1,0 +1,28 @@
+package spring.annotations.ioc.scope;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+@Configuration
+public class TestBeanScope {
+	
+	@Bean
+	@Scope("singleton")
+	public Foo foo() {
+		return new Foo();
+	}
+	
+	@Bean
+	@Scope("prototype")
+	public Bar bar() {
+		return new Bar();
+	}
+
+}
+class Foo {
+	
+}
+class Bar {
+	
+}

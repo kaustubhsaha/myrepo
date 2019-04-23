@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<props>
+		<prop key="stark">DireWolf</prop>
+		<prop key="lannister">Lion</prop>
+		<prop key="tully">Fish</prop>
+		<prop key="barratheon">Stag</prop>
+		<prop key="targeryan">Dragon</prop>
+	</props>
+
+
+	<list>
+		<value>Drogon</value>
+		<value>Viscerion</value>
+		<value>Rhaegal</value>
+	</list>
+	
+	<map>
+		<entry key="stark" value-ref="starkMotto">
+		</entry>
+		<entry key="tully" value="Family.Duty.Honour">
+		</entry>
+	</map>
+	
+	<bean id="starkMotto" class="java.lang.String">
+		<constructor-arg value = "Winter is coming"/>
+	</bean>
+	
+	<set>
+		<value>Drogon</value>
+		<value>Viscerion</value>
+		<value>Rhaegal</value>
+	</set>
+	
+</beans>

@@ -1,0 +1,33 @@
+package spring.xml.ioc.basics;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestBeanInheritance {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("BeanInheritance.xml");
+	}
+}
+class Boss {
+	
+	String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+
+class Hitman extends Boss {
+	
+	String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String toString() {
+		return this.name + "reports to" + super.name;
+	}
+	
+}

@@ -1,0 +1,27 @@
+package spring.xml.ioc.lifecycle;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class TestBeanLifecycleNonPojo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class Foo implements InitializingBean {
+
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Foo.afterPropertiesSet() invoked");
+	}
+	
+}
+class Bar implements DisposableBean {
+
+	public void destroy() throws Exception {
+		System.out.println("Bar.destroy() invoked");
+	}
+	
+}

@@ -1,0 +1,23 @@
+package spring.xml.ioc.profile;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestProfile {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext container = new ClassPathXmlApplicationContext("TestProfile.xml");
+	}
+}
+class Motto {
+	String motto;
+	
+	public Motto(String motto) {
+		this.motto = motto;
+	}
+	
+	public String toString() {
+		System.out.println(this.motto);
+	}
+}

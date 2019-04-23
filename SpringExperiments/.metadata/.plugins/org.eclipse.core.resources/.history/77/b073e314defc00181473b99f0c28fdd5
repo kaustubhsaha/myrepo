@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processor" class="spring.xml.ioc.profile.ConfigurableEnvironmentProcessor"/>
+
+	<beans profile="stark">
+		<bean id="motto" class="spring.xml.ioc.profile.Motto">
+			<constructor-arg value="Winter is coming"/>
+		</bean>
+	</beans>
+	
+	<beans profile="greyjoy">
+		<bean id="motto" class="spring.xml.ioc.profile.Motto">
+			<constructor-arg value="We do not sow"/>
+		</bean>
+	</beans>
+
+	<beans profile="tully">
+		<bean id="motto" class="spring.xml.ioc.profile.Motto">
+			<constructor-arg value="Family. Duty. Honor"/>
+		</bean>
+	</beans>	
+
+	<beans profile="lannister">
+		<bean id="motto" class="spring.xml.ioc.profile.Motto">
+			<constructor-arg value="Always pay debt"/>
+		</bean>
+	</beans>
+	
+	
+</beans>

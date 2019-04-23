@@ -1,0 +1,32 @@
+package spring.annotations.ioc.lifecycle;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class LifecycleTestConfigPojo {
+
+}
+class Foo {
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("Foo: @PostConstruct annotated method invoked");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("Foo: @PreDestroy annotated method invoked");
+	}
+	
+}
+class Bar {
+	public void begin() {
+		System.out.println("Bar: begin invoked");
+	}
+}
+class Baz {
+	
+}

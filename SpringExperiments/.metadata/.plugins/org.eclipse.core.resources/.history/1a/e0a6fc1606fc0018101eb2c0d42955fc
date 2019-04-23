@@ -1,0 +1,64 @@
+package spring.annotations.ioc.basics;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import spring.xml.ioc.basics.Foo;
+
+
+@Configuration
+public class IOCBasicsConfig {
+
+	// bean name implied from method name
+	@Bean
+	public Bar bar() {
+		return new Bar();
+	}
+	
+	@Bean(name = "baz")
+	public Baz bazz() {
+		return new Baz();
+	}
+	
+	@Bean
+	public Foo foo(Bar bar, Baz baz) {
+		Foo foo = new Foo(bar); // can't use private constructor anymore
+		foo.setBaz(baz);
+		return foo;
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext container = new AnnotationConfigApplicationContext(IOCBasicsConfig.class);
+		Foo foo = container.getBean("foo", Foo.class);
+	}
+	
+	
+}
+class Foo {
+	
+	protected Baz baz;
+	protected Bar bar;
+	
+	public Foo (Bar b) {
+		System.out.println(" public Foo (Bar b) -> constructor invoked");
+		bar = b;
+	}
+	
+	private Foo() {
+		
+	}
+	
+	public void setBaz(Baz baz) {
+		this.baz = baz;
+	}
+	
+}
+class Bar {
+	
+}
+class Baz {
+	
+}

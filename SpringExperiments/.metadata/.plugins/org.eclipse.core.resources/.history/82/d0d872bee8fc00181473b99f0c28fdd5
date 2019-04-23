@@ -1,0 +1,8 @@
+package spring.xml.ioc.autowiring;
+
+public class TestConstructorAutowire {
+
+	public static void main(String[] args) {
+		
+	}
+}

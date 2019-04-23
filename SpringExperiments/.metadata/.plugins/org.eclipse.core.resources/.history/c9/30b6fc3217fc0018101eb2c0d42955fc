@@ -1,0 +1,14 @@
+package spring.annotations.ioc.lifecycle;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class LifecycleTestConfigPojo {
+
+}
+class Foo {
+	
+}
+class Bar {
+	
+}

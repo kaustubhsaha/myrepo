@@ -1,0 +1,20 @@
+package spring.xml.ioc.autowiring;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestNameAutowire {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("AutowireByName.xml");
+		Baz baz = container.getBean(Baz.class);
+		// should not be null
+		System.out.println(baz.bar);
+		Bar bar = container.getBean("bar", Bar.class);
+		Bar barbeque = container.getBean("barBeQue", Bar.class);
+		// should print true
+		System.out.println(baz.bar == bar);
+		// should print false
+		System.out.println(baz.bar == barbeque);
+	}
+}

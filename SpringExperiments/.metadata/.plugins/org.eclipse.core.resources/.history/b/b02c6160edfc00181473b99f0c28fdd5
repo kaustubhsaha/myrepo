@@ -1,0 +1,5 @@
+package spring.annotation.ioc.props;
+
+public class TestSpEL {
+
+}

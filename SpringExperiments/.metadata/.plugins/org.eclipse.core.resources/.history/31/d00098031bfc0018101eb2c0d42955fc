@@ -1,0 +1,25 @@
+package spring.xml.ioc.basics;
+
+public class TestInnerBean {
+
+}
+class Stark {
+	
+	Bolton bolton;
+	Mormont mormont;
+	
+	public Stark(Mormont mormont) {
+		this.mormont = mormont;
+	}
+	
+	public void setBolton(Bolton bolton) {
+		this.bolton = bolton;
+	}
+	
+}
+class Bolton {
+	
+}
+class Mormont {
+	
+}

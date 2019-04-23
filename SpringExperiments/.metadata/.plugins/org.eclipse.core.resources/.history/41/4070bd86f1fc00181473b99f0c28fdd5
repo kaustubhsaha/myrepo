@@ -1,0 +1,41 @@
+package spring.xml.ioc.collections;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import org.junit.Assert;
+
+public class TestCollectionInjections {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("Lifecycle1.xml");
+		Test t = container.getBean(Test.class);
+	}
+}
+class Test{
+	
+	Properties sigils;
+	List<String> dragons;
+	Map<String, String> mottos;
+	Set<String> uniquedragons;
+	
+	public void setSigils(Properties sigils) {
+		this.sigils = sigils;
+	}
+	public void setDragons(List<String> dragons) {
+		this.dragons = dragons;
+	}
+	public void setMottos(Map<String, String> mottos) {
+		this.mottos = mottos;
+	}
+	public void setUniquedragons(Set<String> uniquedragons) {
+		this.uniquedragons = uniquedragons;
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+package spring.xml.ioc.factory;
+
+import org.springframework.beans.factory.FactoryBean;
+
+public class TestFactoryBean {
+
+}
+
+class DummyFactory implements FactoryBean<Dummy>{
+	
+}
+class Dummy {
+	
+}

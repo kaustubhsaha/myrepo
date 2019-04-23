@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	   <!-- just another way of constructor based injection -->
+	   <bean id="foo1" class="spring.xml.ioc.basics.Foo">
+	   		<constructor-arg>
+	   			<null/>
+	   		</constructor-arg>
+	   </bean>
+	   
+	   <!-- just another way of property based injection -->
+	   <bean id="foo2" class="spring.xml.ioc.basics.Foo">
+	   		<property name="baz">
+	   			<null/>
+	   		</property>	   		
+	   </bean>
+	   
+	   
+	   <bean id="bar" class="spring.xml.ioc.basics.Bar"/>	   
+	   <bean id="baz" class="spring.xml.ioc.basics.Baz"/>
+
+</beans>

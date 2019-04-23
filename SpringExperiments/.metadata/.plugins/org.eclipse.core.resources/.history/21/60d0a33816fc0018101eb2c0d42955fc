@@ -1,0 +1,5 @@
+package spring.xml.ioc.lifecycle;
+
+public class TestBeanLifecyclePojo {
+
+}

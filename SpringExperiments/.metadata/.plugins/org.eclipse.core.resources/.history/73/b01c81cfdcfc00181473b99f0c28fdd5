@@ -1,0 +1,50 @@
+package spring.xml.ioc.profile;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+public class TestProfile {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext container = new ClassPathXmlApplicationContext("TestProfile.xml");
+		Motto m = null;
+		try{
+			m = container.getBean("motto", Motto.class);
+		}
+		catch (NoSuchBeanDefinitionException ex) {
+			// fails because we havent setup a profile yet
+			System.out.println(ex.getLocalizedMessage());
+		}
+		
+		container.getEnvironment().
+		
+	}
+}
+class Motto {
+	String motto;
+	
+	public Motto(String motto) {
+		this.motto = motto;
+	}
+	
+	public String toString() {
+		return this.motto;
+	}
+}
+class ConfigurableEnvironmentProcessor implements BeanFactoryPostProcessor {
+
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+		ConfigurableEnvironment env = beanFactory.getBean(ConfigurableEnvironment.class);
+		env.setActiveProfiles("lannister");
+		
+	}
+
+
+
+}

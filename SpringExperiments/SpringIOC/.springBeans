@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.6.201809180658-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/resources/DependencyInjectionBasics1.xml</config>
+		<config>src/main/resources/Lifecycle1.xml</config>
+		<config>src/main/resources/Lifecycle2.xml</config>
+		<config>src/main/resources/ClosingContainer.xml</config>
+		<config>src/main/resources/InnerBean.xml</config>
+		<config>src/main/resources/BeanInheritance.xml</config>
+		<config>src/main/resources/BasicBeanScope.xml</config>
+		<config>src/main/resources/ThreadLocalScope.xml</config>
+		<config>src/main/resources/FactoryBean.xml</config>
+		<config>src/main/resources/TestProfile.xml</config>
+		<config>src/main/resources/TestProps.xml</config>
+		<config>src/main/resources/AutowireByConstructor.xml</config>
+		<config>src/main/resources/AutowireByType.xml</config>
+		<config>src/main/resources/CollectionsConfigExample.xml</config>
+		<config>src/main/resources/ExplicitNullInject.xml</config>
+		<config>src/main/resources/UsingNamespaces.xml</config>
+		<config>src/main/resources/BeanDependencies.xml</config>
+		<config>src/main/resources/Lifecycle3.xml</config>
+		<config>src/main/resources/MetadataAware.xml</config>
+		<config>src/main/resources/BeanPreference.xml</config>
+		<config>src/main/resources/BeanPostProcessor.xml</config>
+		<config>src/main/resources/TestStaticInnerBean.xml</config>
+		<config>src/main/resources/TestAlias.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

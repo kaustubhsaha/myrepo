@@ -1,0 +1,20 @@
+package spring.annotations.ioc.basics;
+
+public class TestIOCBasics {
+
+	public static void main(String[] args) {
+		
+	}
+}
+class Foo {
+	
+	public Foo (Bar b) {
+		System.out.println(" public Foo (Bar b) -> constructor invoked");
+	}
+}
+class Bar {
+	
+}
+class Baz {
+	
+}

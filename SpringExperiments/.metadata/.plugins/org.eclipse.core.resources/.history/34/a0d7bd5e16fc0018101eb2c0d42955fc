@@ -1,0 +1,11 @@
+package spring.xml.ioc.lifecycle;
+
+public class TestBeanLifecyclePojo {
+
+	
+}
+class GameOfThrones {
+	
+	public void init
+}
+

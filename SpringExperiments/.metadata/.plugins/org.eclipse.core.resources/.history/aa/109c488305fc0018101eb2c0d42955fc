@@ -1,0 +1,45 @@
+package spring.annotations.ioc.basics;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+
+@Configuration
+public class IOCBasicsConfig {
+
+	@Bean(name = "bar")
+	public Bar bar() {
+		return new Bar();
+	}
+	
+	public Baz baz() {
+		return new Baz();
+	}
+	
+	
+}
+class Foo {
+	
+	protected Baz baz;
+	protected Bar bar;
+	
+	public Foo (Bar b) {
+		System.out.println(" public Foo (Bar b) -> constructor invoked");
+		bar = b;
+	}
+	
+	private Foo() {
+		
+	}
+	
+	public void setBaz(Baz baz) {
+		this.baz = baz;
+	}
+	
+}
+class Bar {
+	
+}
+class Baz {
+	
+}

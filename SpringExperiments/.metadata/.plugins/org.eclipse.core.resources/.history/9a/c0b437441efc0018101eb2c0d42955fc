@@ -1,0 +1,14 @@
+package spring.xml.ioc.scope;
+
+public class TestBeanScope {
+
+	public static void main(String[] args) {
+		
+	}
+}
+class Foo {
+	
+}
+class Bar {
+	
+}

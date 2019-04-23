@@ -1,0 +1,27 @@
+package spring.xml.ioc.basics;
+
+public class TestBeanInheritance {
+
+}
+class Boss {
+	
+	String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+
+class Hitman extends Boss {
+	
+	String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String toString() {
+		return this.name + "reports to" + super.name;
+	}
+	
+}

@@ -1,0 +1,31 @@
+package spring.annotations.ioc.basics;
+
+public class TestIOCBasics {
+
+	public static void main(String[] args) {
+		
+	}
+}
+class Foo {
+	
+	private Baz baz;
+	
+	public Foo (Bar b) {
+		System.out.println(" public Foo (Bar b) -> constructor invoked");
+	}
+	
+	private Foo() {
+		
+	}
+	
+	public void setBaz(Baz baz) {
+		this.baz = baz;
+	}
+	
+}
+class Bar {
+	
+}
+class Baz {
+	
+}

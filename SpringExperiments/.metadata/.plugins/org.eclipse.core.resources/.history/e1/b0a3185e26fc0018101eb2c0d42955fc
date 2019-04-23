@@ -1,0 +1,26 @@
+package spring.xml.ioc.factory;
+
+import org.springframework.beans.factory.FactoryBean;
+
+public class TestFactoryBean {
+
+}
+
+class DummyFactory implements FactoryBean<Dummy>{
+
+	public Dummy getObject() throws Exception {
+		return new Dummy();
+	}
+
+	public Class<?> getObjectType() {
+		return Dummy.class;
+	}
+
+	public boolean isSingleton() {
+		return true;
+	}
+	
+}
+class Dummy {
+	
+}

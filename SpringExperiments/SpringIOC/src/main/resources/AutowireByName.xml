@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Works on the basis of the facts that : -->
+	<!-- Baz has a setter which takes argument of type Bar and the field sname is 'bar' -->
+	<!-- There are two beans of type Bar available for injection but the id bar matches the field name -->
+	<bean id="baz" class="spring.xml.ioc.autowiring.Baz" autowire="byName"/>
+	<bean id="bar" class="spring.xml.ioc.autowiring.Bar"/>
+	<bean id="barBeQue" class="spring.xml.ioc.autowiring.Bar"/>
+	
+</beans>

@@ -1,0 +1,33 @@
+package spring.annotations.ioc.profile;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+@Configuration
+public class TestProfile {
+	
+	@Bean
+	@Profile("stark")
+	public Motto stark() {
+		return new Motto("Winter is coming");
+	}
+
+	@Bean
+	@Profile("lannister")
+	public Motto lannister() {
+		return new Motto("Always pay debts");
+	}
+
+}
+class Motto {
+	String motto;
+	
+	public Motto(String motto) {
+		this.motto = motto;
+	}
+	
+	public String toString() {
+		return this.motto;
+	}
+}

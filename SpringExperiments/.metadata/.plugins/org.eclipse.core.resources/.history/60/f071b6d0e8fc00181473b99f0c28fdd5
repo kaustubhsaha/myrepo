@@ -1,0 +1,19 @@
+package spring.xml.ioc.autowiring;
+
+public class TestConstructorAutowire {
+
+	public static void main(String[] args) {
+		
+	}
+}
+class Foo{
+	
+	Bar bar;
+	
+	public Foo(Bar bar) {
+		this.bar = bar;
+	}
+}
+class Bar {
+	
+}

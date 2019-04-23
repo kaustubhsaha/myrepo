@@ -1,0 +1,5 @@
+package spring.xml.ioc.basics;
+
+public class TestApplicationContextClosure {
+
+}

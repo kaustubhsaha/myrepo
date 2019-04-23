@@ -1,0 +1,5 @@
+package spring.xml.ioc.profile;
+
+public class TestProfile {
+
+}

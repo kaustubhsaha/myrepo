@@ -1,0 +1,5 @@
+package spring.annotations.ioc.basics;
+
+public class Foo {
+
+}

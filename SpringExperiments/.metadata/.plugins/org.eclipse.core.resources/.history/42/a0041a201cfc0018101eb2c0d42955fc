@@ -1,0 +1,13 @@
+package spring.xml.ioc.basics;
+
+public class TestBeanInheritance {
+
+}
+class Boss {
+	
+	String name;
+	
+	public String setName(String name) {
+		this.name = name;
+	}
+}

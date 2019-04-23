@@ -1,0 +1,5 @@
+package spring.annotations.ioc.scope;
+
+public class TestBeanScope {
+
+}

@@ -1,0 +1,17 @@
+package spring.xml.ioc.lifecycle;
+
+public class TestBeanLifecyclePojo {
+
+	
+}
+class GameOfThrones {
+	
+	public void begin() {
+		System.out.println("Barratheon Rule");
+	}
+	
+	public void end() {
+		System.out.println("Stark-Targeryan Rule");
+	}
+}
+

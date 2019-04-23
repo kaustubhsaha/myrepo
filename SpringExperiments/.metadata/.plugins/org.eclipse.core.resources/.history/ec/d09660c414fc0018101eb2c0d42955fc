@@ -1,0 +1,94 @@
+package spring.annotations.ioc.basics;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+@Configuration
+public class IOCBasicsConfig {
+
+	// bean name implied from method name
+	@Bean
+	public Bar bar1() {
+		return new Bar();
+	}
+	
+	@Bean
+	public Bar bar2() {
+		return new Bar();
+	}
+	
+	@Bean(name = "baz")
+	public Baz bazz() {
+		return new Baz();
+	}
+	
+	@Bean
+	public Foo foo1(@Qualifier("bar1")Bar bar, Baz baz) {
+		Foo foo = new Foo(bar); // can't use private constructor anymore
+		foo.setBaz(baz);
+		return foo;
+	}
+	
+	@Bean
+	@Qualifier("foo2")
+	public Foo foo(@Qualifier("bar1")Bar bar, Baz baz) {
+		Foo foo = new Foo(bar); // can't use private constructor anymore
+		foo.setBaz(baz);
+		return foo;
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext container = new AnnotationConfigApplicationContext(IOCBasicsConfig.class);
+		Foo foo1 = container.getBean("foo1", Foo.class);
+		Foo foo2 = container.getBean("foo1", Foo.class);
+		
+		Bar bar1 = container.getBean("bar1", Bar.class);
+		Bar bar2 = container.getBean("bar2", Bar.class);
+		
+		String sep = "---------------------------------------------------";
+		
+		// both should print some non null value
+		System.out.println(foo1.bar);
+		System.out.println(foo2.bar);
+		// should print true - same object injected into both
+		System.out.println(foo1.bar == foo2.bar);
+		
+		// should print true
+		System.out.println(foo1.bar == bar1);
+		// should print false
+		System.out.println(foo1.bar == bar2);		
+		System.out.println(sep);
+	}
+	
+	
+}
+class Foo {
+	
+	protected Baz baz;
+	protected Bar bar;
+	
+	public Foo (Bar b) {
+		System.out.println(" public Foo (Bar b) -> constructor invoked");
+		bar = b;
+	}
+	
+	private Foo() {
+		
+	}
+	
+	public void setBaz(Baz baz) {
+		this.baz = baz;
+	}
+	
+}
+class Bar {
+	
+}
+class Baz {
+	
+}

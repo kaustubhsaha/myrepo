@@ -1,0 +1,22 @@
+package spring.xml.ioc.autowiring;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestConstructorAutowire {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("DependencyInjectionBasics1.xml");
+	}
+}
+class Foo{
+	
+	Bar bar;
+	
+	public Foo(Bar bar) {
+		this.bar = bar;
+	}
+}
+class Bar {
+	
+}

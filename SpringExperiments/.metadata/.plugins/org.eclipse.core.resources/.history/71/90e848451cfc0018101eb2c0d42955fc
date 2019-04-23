@@ -1,0 +1,17 @@
+package spring.xml.ioc.basics;
+
+public class TestBeanInheritance {
+
+}
+class Boss {
+	
+	String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+
+class Caporegime extends Boss {
+	
+}

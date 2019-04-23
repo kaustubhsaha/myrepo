@@ -1,0 +1,14 @@
+package spring.xml.ioc.props;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+public class TestProps {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new AnnotationConfigApplicationContext(TestProps.class);
+		Foo f = container.getBean(Foo.class);
+		System.out.println(f);
+	}
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="test" class="">
+		<property name="sigils"> <!-- java.util.Properties injection example -->
+			<props>
+				<prop key="stark">DireWolf</prop>
+				<prop key="lannister">Lion</prop>
+				<prop key="tully">Fish</prop>
+				<prop key="barratheon">Stag</prop>
+				<prop key="targeryan">Dragon</prop>
+			</props>
+		</property>
+		<property name="dragons">
+			<list>
+				<value>Drogon</value>
+				<value>Viscerion</value>
+				<value>Rhaegal</value>
+			</list>
+		</property>
+		<property name="mottos">
+			<map>
+				<entry key="stark" value-ref="starkMotto"/>
+				<entry key="tully" value="Family.Duty.Honour"/>
+			</map>
+		</property>
+	</bean>
+
+
+
+
+
+
+	
+
+	
+	<bean id="starkMotto" class="java.lang.String">
+		<constructor-arg value = "Winter is coming"/>
+	</bean>
+	
+	<set>
+		<value>Drogon</value>
+		<value>Viscerion</value>
+		<value>Rhaegal</value>
+	</set>
+	
+</beans>

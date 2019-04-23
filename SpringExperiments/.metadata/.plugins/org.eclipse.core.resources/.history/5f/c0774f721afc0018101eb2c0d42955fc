@@ -1,0 +1,11 @@
+package spring.xml.ioc.basics;
+
+public class TestInnerBean {
+
+}
+class Stark {
+	
+}
+class Bolton {
+	
+}

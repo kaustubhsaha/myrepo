@@ -1,0 +1,38 @@
+package spring.xml.ioc.basics;
+
+import java.util.concurrent.TimeUnit;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestApplicationContextClosure {
+
+	public static void main(String[] args) throws Exception {
+		ApplicationContext container = new ClassPathXmlApplicationContext("ClosingContainer.xml");
+		// closing in same thread
+		((ConfigurableApplicationContext)container).close();
+		
+		container = new ClassPathXmlApplicationContext("ClosingContainer.xml");
+		// closing in a shutdownhook thread
+		((ConfigurableApplicationContext)container).registerShutdownHook();
+		
+		TimeUnit.SECONDS.sleep(3);
+		
+	}
+}
+class Dummy implements InitializingBean, DisposableBean {
+
+	public void destroy() throws Exception {
+		String name = Thread.currentThread().getName();
+		System.out.println(name + " is closing application context");		
+	}
+
+	public void afterPropertiesSet() throws Exception {
+		String name = Thread.currentThread().getName();
+		System.out.println(name + " is creating application context");
+	}
+	
+}

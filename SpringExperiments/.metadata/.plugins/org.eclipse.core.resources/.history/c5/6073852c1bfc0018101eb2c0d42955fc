@@ -1,0 +1,31 @@
+package spring.xml.ioc.basics;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestInnerBean {
+
+	public static void main(String[] args) {
+		ApplicationContext container = new ClassPathXmlApplicationContext("InnerBean.xml");
+	}
+}
+class Stark {
+	
+	Bolton bolton;
+	Mormont mormont;
+	
+	public Stark(Mormont mormont) {
+		this.mormont = mormont;
+	}
+	
+	public void setBolton(Bolton bolton) {
+		this.bolton = bolton;
+	}
+	
+}
+class Bolton {
+	
+}
+class Mormont {
+	
+}

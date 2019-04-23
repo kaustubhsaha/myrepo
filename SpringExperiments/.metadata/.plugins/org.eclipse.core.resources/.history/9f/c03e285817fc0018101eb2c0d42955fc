@@ -1,0 +1,24 @@
+package spring.annotations.ioc.lifecycle;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class LifecycleTestConfigPojo {
+
+}
+class Foo {
+	
+	@PostConstruct
+	public void init() {
+		
+	}
+	
+}
+class Bar {
+	
+}
+class Baz {
+	
+}

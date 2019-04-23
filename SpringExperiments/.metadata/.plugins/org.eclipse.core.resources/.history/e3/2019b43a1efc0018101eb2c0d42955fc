@@ -1,0 +1,5 @@
+package spring.xml.ioc.scope;
+
+public class TestBeanScope {
+
+}
